@@ -17,7 +17,7 @@ public:
     {
         for (int i = 0; i < 1E6; i++)
         {
-            const lock_guard guard(mtx);
+            const lock_guard<mutex> guard(mtx);
             ++count;
         }
     }
