@@ -15,7 +15,6 @@ private:
     int _max_size;
     queue<E> _queue;
 
-
 public:
     blocking_queue(int max_size): _max_size(max_size)
     {
@@ -34,19 +33,22 @@ public:
         _cond.notify_one();
     }
 
-    E pop()
+    E &front()
+    {
+        unique_lock<mutex> lock(_mtx);
+        return _queue.front();
+    }
+
+    void pop()
     {
         unique_lock<mutex> lock(_mtx);
 
         _cond.wait(lock, [this](){ return !_queue.empty(); });
 
-        E item = _queue.front();
         _queue.pop();
 
         lock.unlock();
         _cond.notify_one();
-
-        return item;
     }
 
     int size()
@@ -71,7 +73,8 @@ int main()
     thread t2([&](){
         for(int i = 0; i < 10; i++)
         {
-            auto item = qu.pop();
+            auto item = qu.front();
+            qu.pop();
             cout << "consumed " << item << endl;
         }
     });
