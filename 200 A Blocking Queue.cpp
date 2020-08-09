@@ -33,9 +33,11 @@ public:
         _cond.notify_one();
     }
 
-    E &front()
+    E front()
     {
         unique_lock<mutex> lock(_mtx);
+         _cond.wait(lock, [this](){ return !_queue.empty(); });
+
         return _queue.front();
     }
 
@@ -53,6 +55,7 @@ public:
 
     int size()
     {
+        lock_guard<mutex> lock(_mtx);
         return _queue.size();
     }
 };
