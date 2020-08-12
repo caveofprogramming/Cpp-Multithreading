@@ -29,9 +29,11 @@ int main()
 
     const int CONCURRENCY = thread::hardware_concurrency();
 
+    auto start = chrono::steady_clock::now();
+
     for (int i = 0; i < CONCURRENCY; i++)
     {
-        shared_future<double> f = async(launch::async, calculate_pi, 1E7, i, CONCURRENCY);
+        shared_future<double> f = async(launch::async, calculate_pi, 1E8, i, CONCURRENCY);
         futures.push_back(f);
     }
 
@@ -42,6 +44,11 @@ int main()
         sum += f.get();
     }
 
+    auto end = chrono::steady_clock::now();
+
+    auto duration = chrono::duration_cast<chrono::milliseconds>(end - start).count();
+
+    cout << "Duration: " << duration << endl;
     cout << setprecision(15) << "PI:  " << M_PI << endl;
     cout << setprecision(15) << "Sum: " << sum << endl;
 
