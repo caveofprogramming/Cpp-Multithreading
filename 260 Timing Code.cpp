@@ -9,6 +9,9 @@
 
 using namespace std;
 
+/*
+ *   Slow Leibniz approximation.
+ */
 double calculate_pi(int terms, int start, int skip)
 {
     double sum = 0.0;

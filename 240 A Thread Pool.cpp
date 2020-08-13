@@ -78,6 +78,8 @@ int work(int id)
 
 int main()
 {
+    // Here the argument supplied to the queue needs to be
+    // one less than the number of threads you want to launch.
     blocking_queue<shared_future<int>> futures(2);
 
     thread t([&]() {

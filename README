@@ -1,5 +1,10 @@
 Code for C++ Multithreading video course.
 
+blocking_queue.h additionally contains a blocking queue implementation.
+
+"240 A Thread Pool.cpp" uses an identical implementation to create 
+a thread pool.
+
 ==== Introduction ====
 010 Introduction.mov
 015 Where to Find Source Code
