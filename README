@@ -1,0 +1,39 @@
+Code for C++ Multithreading video course.
+
+==== Introduction ====
+010 Introduction.mov
+015 Where to Find Source Code
+020 Hello World.mov
+030 Basic Multithreading.mov
+040 When is Multithreading Useful.mov
+
+==== Locks ====
+050 Shared Data.mov
+060 Mutexes.mov
+065 Function Arguments.mov
+070 Lock Guards.mov
+080 Threads with Callable Objects.mov
+
+==== Return Values ====
+090 Calculating Pi.mov
+100 Promises and Futures.mov
+110 Promises and Exceptions.mov
+120 Packaged Tasks.mov
+
+==== Signalling ====
+130 Waiting for Threads.mov
+140 Condition Variables.mov
+150 Checking Condition Shared Resources.mov
+160 Blocking Queues.mov
+170 Using Methods in Threads.mov
+180 Containers and Thread Safety.mov
+190 Producer Consumer.mov
+200 A Blocking Queue.mov
+
+==== Processing Work Efficiently ====
+210 Async.mov
+220 Hardware Concurrency.mov
+230 Launching Lots of Threads.mov
+240 A Thread Pool.mov
+250 Distributing Work Between Cores.mov
+260 Timing Code.mov
